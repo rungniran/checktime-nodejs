@@ -1,0 +1,15 @@
+<% include layout/header %>
+<div class="cantai" >
+<div style="font-size: 28px;"><%= namemonth %></div>
+<div>มาทำงานแล้ว <%= countDay %></div>
+<br>
+<br>
+<% data.forEach(function(data) { %>
+<a class="btn detail" style="border-color: #111; width: 200px; float: left; border-radius: 0px;">
+	<%= data.name %><br>
+	<%= data.day %>/<%= data.month %>		
+</a>
+<% }); %>
+</div>
+<% include modal/detail %> 
+<% include layout/footer %>

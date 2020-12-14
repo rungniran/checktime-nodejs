@@ -1,0 +1,34 @@
+<% include layout/header %>
+<div class="cantai" >
+    <table class="table table-hover table-bordered">
+		<thead class="thead-dark">
+		    <tr>
+		    	<th >วันที่</th>
+		        <th >วัน เดือน ปี</th>
+		        <th >เข้างานเวลา</th>
+		        <th >ออกงานเวลา</th>
+		    </tr>
+		</thead>
+
+		<tbody>
+		 	<% data.forEach(function(data) { %>
+		    <tr class="detail" 
+		    name-lastName="<%= session.name %> <%= session.lastName %>" 
+		    numberPersonnel="<%= session.numberPersonnel %>"
+		    position="<%= session.position %>"
+		    day-month-year="<%= data.day %>/<%= data.month %>/<%= data.year %>"
+		    T="<%= data.T %>">
+		    	<td><%= data.day %></td>
+			    <td><%= data.day %>/<%= data.month %>/<%= data.year %></td>
+			    <td><%= data.T %></td>
+			    <td></td>
+		    </tr>
+		    <% }); %>  
+		</tbody> 
+		 
+    </table>
+</div>
+
+<% include modal/detail %>  
+<% include layout/footer %>
+
