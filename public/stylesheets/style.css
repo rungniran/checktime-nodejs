@@ -1,6 +1,7 @@
 body{
    margin: 0px;
    padding: 0px;
+   color: gray;
 }
 .box{
 	margin: 30% 0% 0% 0%;
@@ -14,7 +15,10 @@ li, .menu{
 label{
     color: #111;
 } 
-
+.search{
+	max-width: 220px;
+	margin-right: 10px;
+}
 .cantai{
 	margin-left: 0px; 
 	margin-right: 0px;
@@ -67,14 +71,40 @@ label{
 	font-size: 20px;
 	margin-top: 70px;
 	margin-left: 0px;
-	ำtransition: 0.5s;
+	transition: 0.5s;
 }
-.btn{
-	border-color: #fff;
+.btn-1{
+	/*border-color: #fff;*/
 	display: block;
 	margin: 0 auto;
 	max-width: 200px;
 }
+
+.btn-month{
+	/*border-color: #007bff;*/ 
+	border-width: 2px;
+	max-width: 150px; 
+	border-color: rgba(52, 58, 64, 0.3); 
+	float: left;
+	width: 300px; 
+	margin-left: 4px; 
+	margin-top: 4px;
+	background:  rgba(52, 58, 64, 0.6);
+	color: #fff;
+}
+.btn-month:hover{
+	background:  #fff;
+}
+.contai-month{
+	display: block; 
+	margin-left: 15px; 
+}
+.form-inline{
+	 margin-left: 14px; 
+}
+/*.detail-search{
+	margin-top: 130px; margin-left: 30%; color: gray; font-size: 24px
+}*/
 @media only screen and (min-width: 1000px){
     .box{
         display: block;
@@ -99,12 +129,24 @@ label{
 	}
 	.bar-side-menu{
 	display: block;
-}
-    .bar-sidenav{
-	display: block;
-}
-.bar-cl{
-	display: block;
-}
+	}
+	    .bar-sidenav{
+		display: block;
+	}
+	.bar-cl{
+		display: block;
+	}
+	.btn-month{
+		 max-width: 200px; 
+	}
+	.contai-month{ 
+		margin-left: 22px; 
+	}
+	.detail-search{
+	    margin-top: 130px; 
+	    margin-left: 53%; 
+	    color: gray; 
+	    font-size: 24px
+    }
 
 }

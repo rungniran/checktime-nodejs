@@ -10,7 +10,7 @@ function closeNav() {
 
 $(document).ready(function(){
 	$('.detail').click(function(){
-		let nameLastName = $(this).attr('name-lastName')
+		let nameLastName = $(this).attr('name-LastName')
 		let numberPersonnel = $(this).attr('numberPersonnel')
 		let position = $(this).attr('position')
 		let dayMonthYear = $(this).attr('day-month-year')
@@ -22,7 +22,23 @@ $(document).ready(function(){
         $("#position").val(position)
         $("#dayMonthYear").val(dayMonthYear)
         $("#T").val(T)
+	    $("#fomrDetail").modal("show")
+    })
+    $('.detailyear').click(function(){
+        let nameLastName = $(this).attr('name-Lastname')
+        let year = $(this).attr('year')
+        let month = $(this).attr('month')
+        let countmonth = $(this).attr('countmonth')
+        let pay = $(this).attr('pay')
+        console.log(nameLastName)
+        
+        $("#nameLastName_Year").val(nameLastName)
+        $("#year").val(year)
+        $("#month").val(month)
+        $("#countmonth").val(countmonth)
+        $("#pay").val(pay)
 
-		$("#fomrDetail").modal("show")
-	})
+        $("#fomrDetailMonth").modal("show")
+    })
 })
+

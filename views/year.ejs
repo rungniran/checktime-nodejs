@@ -1,0 +1,16 @@
+<% include layout/header %>
+<div class="cantai" >
+<div style="font-size: 28px; margin-left: 10px;">พ.ศ. <%= year %></div>
+<br>
+<% data.forEach(function(data) { %>
+<div class="contai-month">
+<a class="btn detailyear btn-month" style="width: 300px;" name-Lastname="<%= session.name %> <%= session.lastName %>" year="<%= parseInt(data.year) + 543 %>" month="<%= data.month %>" countmonth="<%= data.countmonth %> วัน" pay="<%= session.pay * data.countmonth %> บาท">
+	<div style="float: left;">เดือน <%= monthThai[data.month - 1] %></div><br>
+	<div style="float: left;">เข้างาน <%= data.countmonth %> วัน</div><br>
+	<div style="float: left;">เงิน <%= session.pay * data.countmonth %> บ.</div>		
+</a>
+</div>
+<% }); %>
+</div>
+<% include modal/detail %>
+<% include layout/footer %>

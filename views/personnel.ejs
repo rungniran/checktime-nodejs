@@ -9,26 +9,24 @@
 		        <th >ออกงานเวลา</th>
 		    </tr>
 		</thead>
-
 		<tbody>
 		 	<% data.forEach(function(data) { %>
-		    <tr class="detail" 
-		    name-lastName="<%= session.name %> <%= session.lastName %>" 
-		    numberPersonnel="<%= session.numberPersonnel %>"
-		    position="<%= session.position %>"
-		    day-month-year="<%= data.day %>/<%= data.month %>/<%= data.year %>"
-		    T="<%= data.T %>">
+		    <tr class="detail" name-Lastname="<%= session.name %> <%= session.lastName %>" numberPersonnel="<%= session.numberPersonnel %>"
+		    position="<%= session.position %>" day-month-year="<%= data.day %>/<%= data.month %>/<%= data.year %>" T="<%= data.T %>">
 		    	<td><%= data.day %></td>
-			    <td><%= data.day %>/<%= data.month %>/<%= data.year %></td>
+			    <td><%= data.day + "/" + data.month + "/" + data.year %></td>
 			    <td><%= data.T %></td>
-			    <td></td>
+			    <% if (data.Off_T.length > 0 ) { %>
+			    <td><%= data.Off_T %></td>
+			    <% } else { %>
+			    <td>อาจจะลืมบันทึกเวลาออกงาน</td>
+			    <% }  %>
 		    </tr>
 		    <% }); %>  
 		</tbody> 
 		 
     </table>
 </div>
-
 <% include modal/detail %>  
 <% include layout/footer %>
 
