@@ -12,6 +12,7 @@ var minute = dateFormat(new Date(), "MM")
 var monthNamesThai = ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม"];
 var monthThai = monthNamesThai[month-1]
 
+
 router.get('/login', function(req, res, next) {
     res.render('login',{message: {}} )
 })
@@ -20,7 +21,7 @@ router.post('/login', function(req, res, next){
 	let name = req.body.name
 	let numberPersonnel = req.body.numberPersonnel
 	let data = [name, numberPersonnel]
-	let sql = "SELECT * FROM listpersonnel WHERE name = ? AND numberPersonnel = ?"
+	let sql = "SELECT * FROM  listpersonnel WHERE name = ? AND numberPersonnel = ?"
 	mysql.query(sql, data, function(err, result){
 		console.log(result.length)
 		if (result.length == 1) {
@@ -42,7 +43,7 @@ router.get('/personnel', function(req, res, next) {
 		let numberPersonnel = req.session.session.numberPersonnel
         console.log(numberPersonnel)
         let val = [numberPersonnel]
-        let sql = "SELECT * FROM worktime WHERE numberPersonnel IN (?) order by idWorkTime desc LIMIT 10"
+        let sql = "SELECT list.*, work.* FROM worktime AS work INNER JOIN listpersonnel AS list ON work.idListPersonnel = list.idListPersonnel WHERE numberPersonnel IN (?) order by idWorkTime desc LIMIT 10"
         mysql.query(sql, val, function(err, result){
             console.log(result)       
 	        res.render('personnel',{
@@ -62,9 +63,9 @@ router.get('/month', function(req, res, next){
 		console.log(day + "/" + month + "/" + year + " " + hour + ":" + minute)
 		let numberPersonnel = req.session.session.numberPersonnel
 		let val = [numberPersonnel, month, year]
-		let sql = "SELECT * FROM worktime WHERE numberPersonnel  IN (?) AND month IN (?) AND year IN (?) order by day ASC"
+		let sql = "SELECT list.*, work.* FROM worktime AS work INNER JOIN listpersonnel AS list ON work.idListPersonnel = list.idListPersonnel WHERE numberPersonnel  IN (?) AND month IN (?) AND year IN (?) order by day ASC"
 		mysql.query(sql, val, function(err, result){
-			console.log(result.length)
+	
 			console.log(result)
 			res.render('month',{
 				data: result,
@@ -84,7 +85,7 @@ router.get('/year', function(req, res, next){
 	else{
 		let numberPersonnel = req.session.session.numberPersonnel
 		let val = [numberPersonnel,year]
-	    let sql = "SELECT *,month, count(*) AS countmonth FROM worktime WHERE numberPersonnel IN (?) AND year IN (?) GROUP BY month" //month IN ('11','12') AND
+	    let sql = "SELECT list.*, work.*,month, count(*) AS countmonth FROM worktime AS work INNER JOIN listpersonnel AS list ON work.idListPersonnel = list.idListPersonnel WHERE numberPersonnel IN (?) AND year IN (?) GROUP BY month" //month IN ('11','12') AND
 	    mysql.query(sql, val, function(err, result){
 	    	console.log(result)
 	    	res.render('year',{
@@ -115,7 +116,7 @@ router.post('/search', function(req, res, next) {
     let numberPersonnel = req.session.session.numberPersonnel
     console.log(qyear)
     let val = [numberPersonnel, qyear]
-    let sql = "SELECT *,month, count(*) AS countmonth FROM worktime WHERE numberPersonnel IN (?) AND year IN (?) GROUP BY month"
+    let sql = "SELECT work.*, list.* ,month, count(*) AS countmonth FROM worktime AS work INNER JOIN listpersonnel AS list ON work.idListPersonnel = list.idListPersonnel WHERE numberPersonnel IN (?) AND year IN (?) GROUP BY month"
     mysql.query(sql, val, function(err, result){
     	if (err) {
 	    	res.render('search',{

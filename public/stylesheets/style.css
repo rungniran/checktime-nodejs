@@ -26,7 +26,7 @@ label{
 }
 .sidenav{
 	width: 0px;  
-	height: 700px;
+	height: 100vh;
 	background-color: #343a40;
 	display: block;
 	transition: 0.5s;
@@ -42,6 +42,7 @@ label{
 .side-menu, .side-menu:hover{
 	text-decoration:none;
 	margin-left: -250px;
+	display: block;
 	margin-top: 70px;
 	color: #fff;
 	transition: 0.5s;
@@ -49,16 +50,24 @@ label{
 
 }
 .cl{
+	margin:0px 10px;
 	display: block;
 	height: 100%;
 	color: #fff;
-	margin-left: 40px;
+	padding: 10px 20px;
+	text-decoration: none;
+}
+.cl:active, .cl:hover {
+	border-radius: 10px;
+	color: #fff;
+	text-decoration: none;
+	background-color: #687582;
 }
 .bar-cl{
 	display: none;
 }
 .bar-sidenav{
-	height: 700px;
+	height: 100vh;
 	width: 250px; 
 	transition: 0.5s;
 	background-color: #343a40;
@@ -102,6 +111,9 @@ label{
 .form-inline{
 	 margin-left: 14px; 
 }
+ .cantai h2{
+    	margin-left: 2%;
+    }
 /*.detail-search{
 	margin-top: 130px; margin-left: 30%; color: gray; font-size: 24px
 }*/
@@ -147,6 +159,9 @@ label{
 	    margin-left: 53%; 
 	    color: gray; 
 	    font-size: 24px
+    }
+    .cantai h2{
+    	margin-left: 10px;
     }
 
 }

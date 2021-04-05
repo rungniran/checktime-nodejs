@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: '0000000000000kjk',saveUninitialized: true,resave: true}));
+app.use(session({secret: '000000000000rkjk',saveUninitialized: true,resave: true}));
 
 app.listen(port, function(){
 	console.log('running on port ' + port)
