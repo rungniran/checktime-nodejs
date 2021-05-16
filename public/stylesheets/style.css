@@ -46,22 +46,23 @@ label{
 	margin-top: 70px;
 	color: #fff;
 	transition: 0.5s;
-	font-size: 20px; 
+	
 
 }
 .cl{
+	font-size: 18px; 
 	margin:0px 10px;
 	display: block;
 	height: 100%;
-	color: #fff;
+	color: #ffffffc4;
 	padding: 10px 20px;
 	text-decoration: none;
 }
 .cl:active, .cl:hover {
-	border-radius: 10px;
+	border-radius: 3px;
 	color: #fff;
 	text-decoration: none;
-	background-color: #687582;
+	background-color: #ffffff1a;
 }
 .bar-cl{
 	display: none;
@@ -78,7 +79,7 @@ label{
 	display: none;
 	color: #fff;
 	font-size: 20px;
-	margin-top: 70px;
+	margin-top: 10px;
 	margin-left: 0px;
 	transition: 0.5s;
 }
@@ -89,6 +90,7 @@ label{
 	max-width: 200px;
 }
 
+
 .btn-month{
 	/*border-color: #007bff;*/ 
 	border-width: 2px;
@@ -98,12 +100,12 @@ label{
 	width: 300px; 
 	margin-left: 4px; 
 	margin-top: 4px;
-	background:  rgba(52, 58, 64, 0.6);
-	color: #fff;
+	background:  rgb(255, 255, 255);
+	color: gray;
 }
-.btn-month:hover{
+/* .btn-month:hover{
 	background:  #fff;
-}
+} */
 .contai-month{
 	display: block; 
 	margin-left: 15px; 

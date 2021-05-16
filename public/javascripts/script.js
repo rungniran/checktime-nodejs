@@ -42,3 +42,35 @@ $(document).ready(function(){
     })
 })
 
+console.log(window.location.pathname)
+var coler = "#ffffff5a"
+if(window.location.pathname === "/dashboard"){
+    let dashboard = document.getElementById("dashboard")
+    dashboard.style.backgroundColor = coler
+    dashboard.style.borderRadius = "3px"
+}
+else if(window.location.pathname === "/personnel"){
+    let personnel = document.getElementById("personnel")
+    personnel.style.backgroundColor = coler
+    personnel.style.borderRadius = "3px"
+}
+else if(window.location.pathname === "/month"){
+    let month = document.getElementById("month")
+    month.style.backgroundColor = coler
+    month.style.borderRadius = "3px"
+}
+else if(window.location.pathname === "/year"){
+    let year = document.getElementById("year")
+    year.style.backgroundColor = coler
+    year.style.borderRadius = "3px"
+}
+else if(window.location.pathname === "/search"){
+    let search = document.getElementById("search")
+    search.style.backgroundColor = coler
+    search.style.borderRadius = "3px"
+}
+else if(window.location.pathname === "/inform"){
+    let inform = document.getElementById("inform")
+    inform.style.backgroundColor = coler
+    inform.style.borderRadius = "3px"
+}

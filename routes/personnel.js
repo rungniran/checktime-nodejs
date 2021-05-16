@@ -1,6 +1,7 @@
 var express = require('express')
 var dateFormat = require('dateformat')
 var mysql = require('../connect')
+const { response } = require('express')
 var router = express.Router()
 var nameday = dateFormat(new Date(), "dddd")
 var day = dateFormat(new Date(), "dd")
@@ -34,6 +35,18 @@ router.post('/login', function(req, res, next){
 		}
 	})
 })
+
+router.get('/dashboard', function(req, res, next){
+	if(!req.session.session){
+		res.render('login')
+	}
+	else{
+		res.render('dashboard', {
+			session: req.session.session
+		})
+	}
+})
+
 
 router.get('/personnel', function(req, res, next) {
 	if (!req.session.session) {
