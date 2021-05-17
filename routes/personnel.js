@@ -28,7 +28,8 @@ router.post('/login', function(req, res, next){
 		if (result.length == 1) {
 			console.log(result)
 			req.session.session = result[0]
-			res.redirect('personnel')
+			req.session.logger = true
+			res.redirect('/dashboard')
 		}
 		else{
 			res.render('login', {message : "This account could not be found, please check again!!"})
@@ -37,13 +38,13 @@ router.post('/login', function(req, res, next){
 })
 
 router.get('/dashboard', function(req, res, next){
-	if(!req.session.session){
-		res.render('login')
+	if(req.session.session)
+	    {res.render('dashboard', {
+	        session: req.session.session
+	    })	
 	}
 	else{
-		res.render('dashboard', {
-			session: req.session.session
-		})
+		res.render('login')
 	}
 })
 
