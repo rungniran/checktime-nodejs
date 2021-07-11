@@ -12,24 +12,40 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg   fixed-top " style="background-color: #fff; box-shadow: 0 3px 5px rgba(0,0,0,0.125);">    
+<nav class="navbar navbar-expand-lg   fixed-top " style="background-color: rgb(255, 255, 255); box-shadow: 0 3px 5px rgba(0,0,0,0.125);">    
 	<a class="bars" style="color: #fff" onclick="openNav()"><i class="fa fa-bars" style="font-size:20px; color:#111"></i></a>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav ml-auto">     
-	        <li class="menu">
-	        	<button class="btn btn-primary" id="navbarDropdown" role="button" data-toggle="dropdown"><%= session.name %> <%= session.lastName %></button>
-	        </li>
-	        <li>
-	        	<button class="btn btn-primary" id="navbarDropdown" role="button" data-toggle="dropdown"><%= session.position %></button>
-	        </li>
-	    </ul>         
+	        <div onclick="profilemenu()" class="menu">
+	            <div style="margin-right: 20px;">
+				    <img style="width: 43px; height: 43px; border-radius: 100%;" src="https://curmincenterthai.com/wp-content/uploads/2019/06/man.png">	
+				</div>
+				<div styly="overflow: hidden; "><%= session.name %> <br><small style="font-size: 10px;"><%= session.position %></small></div>
+	        </div>
+			
+	    </ul>
+		<div class="profilemenu" id="test">
+			<ul class="c-profilemenu">
+			<li class="profilemenu-s">
+				<div onclick="profilemenu()" class="menu">
+			        <div styly="overflow: hidden; "><%= session.name %> <%= session.lastName %> <br><small style="font-size: 10px;"><%= session.position %></small></div>
+	            </div>
+		    </li>
+			<hr>
+			<li  class="profilemenu-s">ความช่วยเหลือ</li>
+			<li  class="profilemenu-s">เกี่ยวกับเรา</li>
+			<a href="logout"   role="button"><li  class="profilemenu-s">ออกจากระบบ</li></a>
+			<hr>
+			<li  class="profilemenu-s"><small style="font-size: 10px;">©Company 2021 | v.1.1.0 | Porwer by rungniran</small></li>
+		    </ul>
+		</div>        
 	</div>
 </nav>
 <div class="sidenav fixed-top " id="mySidenav">
 	<a href="#" class="bar-link" onclick="closeNav()">&times;</a>
 	<div class="side-menu" id="sideMenu">
 		<a  class="cl" href="dashboard">ภาพรวม</a>
-		<a class="cl" href="personnel">เข้างานล่าสุด</a>
+		<a class="cl" href="latest">เข้างานล่าสุด</a>
 		<a class="cl" href="month">เข้างานของเดือนนี้</a>
 		<a class="cl" href="year">เข้างานของปีนี้</a>
 		<a class="cl" href="search">ค้นหาการเข้างาน</a>
@@ -43,11 +59,9 @@
 	<div class="bar-side-menu" id="sideMenu">
 		<a class="cl" style="text-align: center;"><i class="fas fa-anchor"></i> COMPANY</a><br>
 		<a  class="cl" href="dashboard" id="dashboard"><i class="fas fa-columns"></i> &nbsp;  ภาพรวม</a>
-		<a  class="cl" href="personnel" id="personnel"><i class="fab fa-hotjar"></i> &nbsp; เข้างานล่าสุด</a>
+		<a  class="cl" href="latest" id="latest"><i class="fab fa-hotjar"></i> &nbsp; เข้างานล่าสุด</a>
 		<a class="cl" href="month" id="month"><i class="fas fa-calendar-day"></i> &nbsp; เข้างานของเดือนนี้</a>
 		<a class="cl" href="year" id="year"><i class="fas fa-calendar"></i> &nbsp; เข้างานของปีนี้</a>
 		<a class="cl" href="search" id="search"><i class="fas fa-search"></i> &nbsp; ค้นหาการเข้างาน</a>
-		<a class="cl" href="inform" id="inform">แจ้งเจ้าหน้าที่</a><br><br>
-		<a href="logout" class="btn btn-primary btn-1" role="button">ออกจากระบบ</a>
     </div>
 </div>

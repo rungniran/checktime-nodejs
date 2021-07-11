@@ -49,8 +49,8 @@ if(window.location.pathname === "/dashboard"){
     dashboard.style.backgroundColor = coler
     dashboard.style.borderRadius = "3px"
 }
-else if(window.location.pathname === "/personnel"){
-    let personnel = document.getElementById("personnel")
+else if(window.location.pathname === "/latest"){
+    let personnel = document.getElementById("latest")
     personnel.style.backgroundColor = coler
     personnel.style.borderRadius = "3px"
 }
@@ -74,3 +74,17 @@ else if(window.location.pathname === "/inform"){
     inform.style.backgroundColor = coler
     inform.style.borderRadius = "3px"
 }
+
+
+
+function profilemenu(){
+    console.log( document.getElementById("test").classList[1])
+    if(document.getElementById("test").classList[1] === "profilemenu-show"){
+        document.getElementById("test").classList.remove("profilemenu-show");
+    }else{
+        document.getElementById("test").classList.add("profilemenu-show");
+    }
+    
+   
+}
+
