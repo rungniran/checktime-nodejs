@@ -1,0 +1,35 @@
+<% include layout/header %>
+<div class="cantai" >
+    <div style="padding: 10px 0px;  border-radius: 7px; margin-bottom: 10px;"><i class="fas fa-home"></i> / HR </div>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 200px;"></th>
+                <th>ชื่อ-นามสกุล</th>
+                <th>ตำแหน่ง</th>
+                <th>วัน เดือน ปี</th>
+                <th>ประเภท</th>
+                <th>หมายเหตุ</th>
+                <!-- <th>status</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(function(data) { %>
+            <tr class="detail">
+                <td style="display: flex; justify-content: center;">
+                    <a href="leaveupdate/<%= data.leave_id %>" type="button"  onclick="return confirm('คุณต้องการอนุมัติรายการนี้?');" class="btn btn-primary">อนุมัติ</a> &nbsp;
+                    <a href="leaveNotupdate/<%= data.leave_id %>" type="button" onclick="return confirm('คุณต้องการไม่อนุมัติรายการนี้?');" class="btn btn-danger">ไม่อนุมัติ</a>
+                    
+                </td>
+                <td><%= data.name %> <%= data.lastName %> </td>
+                <td><%= data.position %></td>
+                <td><%= data.day %>/<%= data.month %>/<%= data.year %></td>
+                <td><%= data.leave_type %></td>
+                <td><%= data.leave_detail %></td>
+                <!-- <td><%= data.leave_status %></td> -->
+            </tr>
+            <% }); %>  
+        </tbody>
+    </table>
+</div>
+<% include layout/footer %>

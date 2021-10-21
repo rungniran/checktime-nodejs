@@ -18,18 +18,13 @@ let employee =  async (req, res, next) => {
 	let numberPersonnel = req.session.session.numberPersonnel
 	let val = [numberPersonnel]
 	let s = await employeeModel.employee(req, res, val)
-	
-        
-    
 }
 
-let months =  (req, res, next) => {
+let months = async  (req, res, next) => {
 	console.log(day + "/" + month + "/" + year + " " + hour + ":" + minute)
 	let numberPersonnel = req.session.session.numberPersonnel
 	let val = [numberPersonnel, month, year]
-	employeeModel.months(req, res, val)	
-	
-	
+	employeeModel.months(req, res, val)
 }
 
 let years = function(req, res, next){
@@ -46,5 +41,10 @@ let search = (req, res, next)=> {
 }
 
 
+let leave = (req, res) => {
+	employeeModel.leave(req, res)
+}
 
-module.exports = {employee, months, years, search }
+
+
+module.exports = {employee, months, years, search, leave}

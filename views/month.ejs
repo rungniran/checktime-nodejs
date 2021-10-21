@@ -1,8 +1,7 @@
 <% include layout/header %>
 <div class="cantai" >
-<div style="margin-left: 10px;">เดือนนี้คุณมาทำงานแล้ว <%= countDay %></div>
-<div style="margin-left: 10px;">ยอดเงินเดือน   <%= m %> บ.</div>
-<br>
+	<div style="padding: 10px 0px;  border-radius: 7px; margin-bottom: 10px;"><i class="fas fa-home"></i> / Month </div>
+
 <% data.forEach(function(data) { %>
 <div class="contai-month">
 <a class="btn detail btn-month" name-Lastname="<%= session.name %> <%= session.lastName %>" numberPersonnel="<%= session.numberPersonnel %>"

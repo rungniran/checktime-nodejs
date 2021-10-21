@@ -12,17 +12,18 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg   fixed-top " style="background-color: rgb(255, 255, 255); box-shadow: 0 3px 5px rgba(0,0,0,0.125);">    
-	<a class="bars" style="color: #fff" onclick="openNav()"><i class="fa fa-bars" style="font-size:20px; color:#111"></i></a>
+<nav class="navbar navbar-expand-lg   fixed-top " style="background-color:#162b52; box-shadow: 0 3px 5px rgba(0,0,0,0.125);">    
+	<a class="bars" style="color: #fdfdfd ; margin-left: 20px; font-size: 20px;" onclick="openNav()"><i class="fab fa-rebel"></i>  &nbsp;  Rungniran</a>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav ml-auto">     
-	        <div onclick="profilemenu()" class="menu">
-	            <div style="margin-right: 20px;">
-				    <img style="width: 43px; height: 43px; border-radius: 100%;" src="https://curmincenterthai.com/wp-content/uploads/2019/06/man.png">	
+	        <div  class="menu">
+				<div style="margin-right: 10px;width: 43px; height: 43px; border-radius: 100%; background:#e4e6eb; display: flex; justify-content: center; align-items: center;">
+					<i class="fas fa-bell" style="color: rgb(36, 36, 36);"></i>
 				</div>
-				<div styly="overflow: hidden; "><%= session.name %> <br><small style="font-size: 10px;"><%= session.position %></small></div>
+	            <div>
+				    <img onclick="profilemenu()" style="width: 43px; height: 43px; border-radius: 100%;" src="https://curmincenterthai.com/wp-content/uploads/2019/06/man.png">	
+				</div>
 	        </div>
-			
 	    </ul>
 		<div class="profilemenu" id="test">
 			<ul class="c-profilemenu">
@@ -41,7 +42,7 @@
 		</div>        
 	</div>
 </nav>
-<div class="sidenav fixed-top " id="mySidenav">
+<!-- <div class="sidenav fixed-top " id="mySidenav">
 	<a href="#" class="bar-link" onclick="closeNav()">&times;</a>
 	<div class="side-menu" id="sideMenu">
 		<a  class="cl" href="dashboard">ภาพรวม</a>
@@ -52,16 +53,20 @@
 		<a class="cl" href="inform">แจ้งเจ้าหน้าที่</a><br><br>
 		<a href="logout" class="btn btn-primary btn-1" role="button">ออกจากระบบ</a>
     </div>
-</div>
+</div> -->
 
 <div class="bar-sidenav fixed-top " id="mySidenav">
-	<a href="#" class="bar-link" onclick="closeNav()">&times;</a>
 	<div class="bar-side-menu" id="sideMenu">
-		<a class="cl" style="text-align: center;"><i class="fas fa-anchor"></i> COMPANY</a><br>
+		<a class="cl" style="text-align: center; margin: 0px 0px 20px 0px;"><i class="fas fa-anchor"></i> COMPANY</a>
 		<a  class="cl" href="dashboard" id="dashboard"><i class="fas fa-columns"></i> &nbsp;  ภาพรวม</a>
 		<a  class="cl" href="latest" id="latest"><i class="fab fa-hotjar"></i> &nbsp; เข้างานล่าสุด</a>
 		<a class="cl" href="month" id="month"><i class="fas fa-calendar-day"></i> &nbsp; เข้างานของเดือนนี้</a>
 		<a class="cl" href="year" id="year"><i class="fas fa-calendar"></i> &nbsp; เข้างานของปีนี้</a>
 		<a class="cl" href="search" id="search"><i class="fas fa-search"></i> &nbsp; ค้นหาการเข้างาน</a>
+		<a class="cl" href="leavelist" id="leavelist"><i class="fas fa-file-alt"></i> &nbsp; ประวัติการลา</a>
+		<% if(session.position === "Human Resource"){ %>
+			<a class="cl" href="hr" id="leavelist"><i class="fas fa-file-alt"></i> &nbsp; คำขอลา - HR </a>
+			<a class="cl" href="setup" id="leavelist"><i class="fas fa-file-alt"></i> &nbsp; ตั้งค่าระบบ - HR </a>
+		 <% } %>
     </div>
 </div>

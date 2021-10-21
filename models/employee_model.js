@@ -6,8 +6,8 @@ var year = dateFormat(new Date(), "yyyy")
 
 let employee = async (req, res, val) => {
     let sql = "SELECT list.*, work.* FROM worktime AS work INNER JOIN listpersonnel AS list ON work.idListPersonnel = list.idListPersonnel WHERE numberPersonnel IN (?) order by idWorkTime desc LIMIT 10"
-    mysql.query(sql, val, function(err, result){   
-        return res.render('personnel',{
+    mysql.query(sql, val, (err, result) => {   
+        res.render('personnel',{
             message: {},
             session: req.session.session,
             data: result
@@ -18,7 +18,7 @@ let employee = async (req, res, val) => {
 let months = async (req, res, val) => {
     let sql = "SELECT list.*, work.* FROM worktime AS work INNER JOIN listpersonnel AS list ON work.idListPersonnel = list.idListPersonnel WHERE numberPersonnel  IN (?) AND month IN (?) AND year IN (?) order by day ASC"
 	mysql.query(sql, val, function(err, result){
-		res.render('month',{
+        res.render('month',{
 			data: result,
 			m: result.length * req.session.session.pay, 
 			namemonth: monthNamesThai[month-1],
@@ -60,4 +60,13 @@ let search = (req, res, val) => {
     })
 }
 
-module.exports = {employee, months, years, search}
+let leave = (req, res, val) => {
+    let value = req.body
+    let key = [employee_id]
+    value.forEach((key, index ) => {
+        console.log(key[0])
+    });
+    let sql = "INSERT INTO leave (CustomerName, ContactName, ) VALUES ('Cardinal','TomB');" 
+}
+
+module.exports = {employee, months, years, search, leave}

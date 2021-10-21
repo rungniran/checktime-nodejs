@@ -74,6 +74,11 @@ else if(window.location.pathname === "/inform"){
     inform.style.backgroundColor = coler
     inform.style.borderRadius = "3px"
 }
+else if(window.location.pathname === "/leavelist"){
+    let inform = document.getElementById("leavelist")
+    inform.style.backgroundColor = coler
+    inform.style.borderRadius = "3px"
+}
 
 
 

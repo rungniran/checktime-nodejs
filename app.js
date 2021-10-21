@@ -37,6 +37,11 @@ app.use('/', employeeRouter);
 app.use('/', loginRouter);
 app.use('/', dashboardRouter);
 
+app.get('*', function(req, res){
+	res.render('404', {
+		session: req.session.session
+	})
+  });
 
 
 

@@ -1,0 +1,69 @@
+<% include layout/header %>
+<div class="cantai" >
+	<div style="padding: 10px 0px;  border-radius: 7px; margin-bottom: 10px;"><i class="fas fa-home"></i> / Leave history </div>
+    <a href="leave" type="button" class="btn btn-primary">ขอลา</a><br><br>
+    <table class="table table-hover table-bordered">
+		<thead>
+		    <tr>
+		    	
+		        <th>วัน เดือน ปี</th>
+		        <th>ประเภท</th>
+				<th>หมายเหตุ</th>
+		        <th>status</th>
+				<th style="width: 200px;"></th>
+		    </tr>
+		</thead>
+		<tbody>
+            <% data.forEach(function(data) { %>
+		    <tr class="detail">
+		    	
+			    <td><%= data.day %>/<%= data.month %>/<%= data.year %></td>
+			    <td><%= data.leave_type %></td>
+				<td><%= data.leave_detail %></td>
+			    <td style="text-align: center;">
+					<% if(data.leave_status === "รออนุมัติ"){ %>
+					    <span style="
+					    color: #856404;
+                        background-color: #fff3cd;
+                        border-color: #ffeeba; 
+						padding: 4px 10px; 
+						border-radius: 3px;"> 
+						    <%= data.leave_status %> 
+					    </span> 
+					<% } else if(data.leave_status === "ไม่อนุมัติ") { %>
+						<span style="
+						color: #721c24;
+						background-color: #f8d7da;
+						border-color: #f5c6cb;
+						padding: 4px 10px; 
+						border-radius: 3px;"> 
+						    <%= data.leave_status %> 
+					    </span> 
+					<% } else if(data.leave_status === "อนุมัติแล้ว") { %>
+						<span style="
+						color: #155724;
+						background-color: #d4edda;
+						border-color: #c3e6cb;
+						padding: 4px 10px; 
+						border-radius: 3px;">
+						    <%= data.leave_status %>
+					    </span>
+					<% } %>
+				</td>
+				<td style="text-align: center;">
+					<% if(data.leave_status === "รออนุมัติ"){ %>
+		                <a href="leavedelete/<%= data.leave_id %>" onclick="return confirm('คุณต้องการยกเลิกรายการนี้?');" type="button" class="delete">ยกเลิก</a>
+					<% } else if(data.leave_status === "ไม่อนุมัติ") { %>
+						<a href="leavedelete/<%= data.leave_id %>" onclick="return confirm('คุณต้องการยกเลิกรายการนี้?');" type="button" class="delete">ยกเลิก</a>
+					<% } else{ %>
+						<a type="button" class="delete" style="background: rgb(214, 213, 213);" aria-disabled="true">ยกเลิก</a>
+					<% } %>
+					
+				</td>
+		    </tr>
+            <% }); %>  
+		</tbody> 	 
+    </table>
+
+</div>
+<% include layout/footer %>
