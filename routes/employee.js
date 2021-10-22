@@ -5,6 +5,7 @@ const { response } = require('express')
 var router = express.Router()
 const employee = require('../controllers/employee_controller')
 
+
 let auth  = (req, res, next) => {
 	if(!req.session.session) {
 	    return res.redirect('/login')  	
@@ -137,7 +138,6 @@ router.get('/leaveNotupdate/:idleave', auth, authHR,(req, res)=>{
 router.get('/hr',auth, authHR, (req, res) =>{
 	let sql = "SELECT `leave`.* , employee.* FROM `leave` AS `leave`  INNER JOIN listpersonnel AS employee ON `leave`.employee_id = employee.idListPersonnel  WHERE `leave_status`='รออนุมัติ' "
 	mysql.query(sql, (err, result)=>{
-		console.log(result)
 		res.render('hr', {
 		    session: req.session.session,
 			data: result
@@ -147,10 +147,27 @@ router.get('/hr',auth, authHR, (req, res) =>{
 })
 
 router.get('/setup',auth, authHR, (req, res) =>{
-	res.render('setup', {
-		session: req.session.session
+	let sql = "SELECT * FROM `setup` "
+	mysql.query(sql, (err, result)=>{
+		console.log(result[0].time_in)
+		res.render('setup', {
+		    session: req.session.session,
+			time_in: result[0].time_in,
+			time_out: result[0].time_out
+	    })
 	})
+	
 })
 
+
+router.post('/setup',auth, authHR, (req, res) =>{
+	let  timein = req.body.timein
+	let timeout = req.body.timeout
+	let sql = "UPDATE `setup` SET `time_in`='"+ timein +"', `time_out`='"+ timeout +"' WHERE setup_id = " + 1
+	mysql.query(sql, (err, result)=>{
+        res.redirect('/setup')
+	})
+
+})
 
 module.exports = router;

@@ -1,8 +1,23 @@
 <% include layout/header %>
 <div class="cantai" style="display: flex; justify-content: center; align-items: center; height: 80vh; flex-direction: column;" >
     <!-- <div style="padding: 10px 0px;  border-radius: 7px; margin-bottom: 10px;"><i class="fas fa-home"></i> Dashboard </div> -->
-    <form style="width: 500px; background-color: #fff; padding: 30px; border-radius: 5px; height: 500px;" method="post" 
-    </form>
+    <form style="width: 700px; background-color: #fff; padding: 30px; border-radius: 5px;" method="post">
+        <div class="form-group">
+            
+            <label for="exampleInputEmail1">เข้างานเปิดเวลา</label>
+            <input type="time" name="timein" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= time_in %>" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">ออกงานเปิดเวลา</label>
+            <input type="time" name="timeout" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= time_out %>" required>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="return confirm('คุณต้องการรีเซตเวลาหรือไม่ ?');">ตกลง</button>
+        
+    </form> 
+    <div class="alert  alert-primary" role="alert" style="width: 700px; margin: 20px 0px;">
+        ทุกครั้งที่ทำการเซตเวลา จะต้อง เปิด-ปิด โปรแกรมตรวจสอบไหม่
+    </div>
+    
 </div>
 
 <% include layout/footer %>
