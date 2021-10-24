@@ -6,19 +6,19 @@
 		<thead>
 		    <tr>
 		    	
-		        <th>วัน เดือน ปี</th>
-		        <th>ประเภท</th>
+		        <th style="text-align: center">วัน เดือน ปี</th>
+		        <th style="text-align: center">ประเภท</th>
 				<th>หมายเหตุ</th>
-		        <th>status</th>
-				<th style="width: 200px;"></th>
+		        <th style="text-align: center">status</th>
+				<th style="width: 200px; text-align: center;">ยกเลิก</th>
 		    </tr>
 		</thead>
 		<tbody>
             <% data.forEach(function(data) { %>
 		    <tr class="detail">
 		    	
-			    <td><%= data.day %>/<%= data.month %>/<%= data.year %></td>
-			    <td><%= data.leave_type %></td>
+			    <td style="text-align: center"><%= data.day %>/<%= data.month %>/<%= data.year %></td>
+			    <td style="text-align: center"><%= data.leave_type %></td>
 				<td><%= data.leave_detail %></td>
 			    <td style="text-align: center;">
 					<% if(data.leave_status === "รออนุมัติ"){ %>
@@ -56,7 +56,7 @@
 					<% } else if(data.leave_status === "ไม่อนุมัติ") { %>
 						<a href="leavedelete/<%= data.leave_id %>" onclick="return confirm('คุณต้องการยกเลิกรายการนี้?');" type="button" class="delete">ยกเลิก</a>
 					<% } else{ %>
-						<a type="button" class="delete" style="background: rgb(214, 213, 213);" aria-disabled="true">ยกเลิก</a>
+						<a type="button" class="delete" style="background: rgb(214, 213, 213);" aria-disabled="true">ยกเลิก ?</a>
 					<% } %>
 					
 				</td>

@@ -2,13 +2,14 @@
 <div class="cantai" style="display: flex; justify-content: center; align-items: center; height: 80vh; flex-direction: column;" >
     <!-- <div style="padding: 10px 0px;  border-radius: 7px; margin-bottom: 10px;"><i class="fas fa-home"></i> Dashboard </div> -->
     <form style="width: 700px; background-color: #fff; padding: 30px; border-radius: 5px;" method="post">
+        <h2 style="color: rgb(0, 0, 0);">ตั้งค่าเวลา</h2><br>
         <div class="form-group">
             
-            <label for="exampleInputEmail1">เข้างานเปิดเวลา</label>
+            <label for="exampleInputEmail1">เวลาเข้างาน</label>
             <input type="time" name="timein" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= time_in %>" required>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">ออกงานเปิดเวลา</label>
+            <label for="exampleInputEmail1">เวลาออกเข้า</label>
             <input type="time" name="timeout" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= time_out %>" required>
         </div>
         <button type="submit" class="btn btn-primary" onclick="return confirm('คุณต้องการรีเซตเวลาหรือไม่ ?');">ตกลง</button>

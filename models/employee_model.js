@@ -29,7 +29,7 @@ let months = async (req, res, val) => {
 }
 
 let years = function(req, res, val){
-    let sql = "SELECT list.*, work.*,month, count(*) AS countmonth FROM worktime AS work INNER JOIN listpersonnel AS list ON work.idListPersonnel = list.idListPersonnel WHERE numberPersonnel IN (?) AND year IN (?) GROUP BY month" //month IN ('11','12') AND
+    let sql = "SELECT list.*, work.*,month, count(*) AS countmonth FROM worktime order by month DESC AS work INNER JOIN listpersonnel AS list ON work.idListPersonnel = list.idListPersonnel WHERE numberPersonnel IN (?) AND year IN (?)  GROUP BY month" //month IN ('11','12') AND
 	mysql.query(sql, val, function(err, result){
 		res.render('year',{
 			data: result,

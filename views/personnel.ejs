@@ -4,7 +4,6 @@
     <table class="table table-hover table-bordered">
 		<thead>
 		    <tr>
-		    	<th>วันที่</th>
 		        <th>วัน เดือน ปี</th>
 		        <th>เข้างานเวลา</th>
 		        <th>ออกงานเวลา</th>
@@ -14,7 +13,6 @@
 		 	<% data.forEach(function(data) { %>
 		    <tr class="detail" name-Lastname="<%= session.name %> <%= session.lastName %>" numberPersonnel="<%= session.numberPersonnel %>"
 		    position="<%= session.position %>" day-month-year="<%= data.day %>/<%= data.month %>/<%= data.year %>" T="<%= data.T %>">
-		    	<td><%= data.day %></td>
 			    <td><%= data.day + "/" + data.month + "/" + data.year %></td>
 			    <td><%= data.T %></td>
 			    <% if (data.Off_T.length > 0 ) { %>
